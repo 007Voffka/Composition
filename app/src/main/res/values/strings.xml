@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">Composition</string>
+    <string name="brain_logo">brain logo</string>
+    <string name="adding_train">Тренировка сложения</string>
+    <string name="game_description">Смысл данного приложения - помочь вам научиться быстро слогать небольшие числа.
+        Правила простые - вам будет показано число суммы и одна из частей этой суммы,
+        ваша задача - подобрать правильный вариант из 6 предложенных максимально быстро,
+        таким образом набирая очки в отведенное время за правильные ответы,
+        так же важна правильность ответов.\nВ игре представлены 3 режима: легкий, средний и тяжелый,
+        они будут отличаться необходимыми для успеха количеством и процентом правильных ответов,
+        а также времем игры, на следующем экране вы сможете начать, удачи!)</string>
+    <string name="button_start_choose_mode">Перейти к выбору сложности</string>
+    <string name="choose_level">Выберите уровень сложности:</string>
+    <string name="test_mode">Тестовый</string>
+    <string name="easy_mode">Легкий</string>
+    <string name="medium_mode">Средний</string>
+    <string name="hard_mode">Тяжелый</string>
+    <string name="question">+?</string>
+    <string name="result_smile">result smile</string>
+    <string name="try_again">Попробовать снова</string>
+    <string name="countOfRightAnswers">Необходимое количество правильных ответов: %s.</string>
+    <string name="score">Ваш счет: %s.</string>
+    <string name="progress_answers">Правильных ответов %s, минимум - %s</string>
+    <string name="necessary_percent">Необходимый процент правильных ответов: %s.</string>
+    <string name="right_answers_percent">Процент правильных ответов: %s.</string>
 </resources>

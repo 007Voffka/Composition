@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/fragmentFirstScreen">
+
+    <fragment
+        android:id="@+id/fragmentFirstScreen"
+        android:name="com.example.composition.presentation.FragmentFirstScreen"
+        android:label="FragmentFirstScreen" >
+        <action
+            android:id="@+id/action_fragmentFirstScreen_to_fragmentChooseLevel"
+            app:destination="@id/fragmentChooseLevel" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentChooseLevel"
+        android:name="com.example.composition.presentation.FragmentChooseLevel"
+        android:label="FragmentChooseLevel" >
+        <action
+            android:id="@+id/action_fragmentChooseLevel_to_fragmentGame"
+            app:destination="@id/fragmentGame" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentGame"
+        android:name="com.example.composition.presentation.FragmentGame"
+        android:label="FragmentGame" >
+        <action
+            android:id="@+id/action_fragmentGame_to_fragmentGameResult"
+            app:destination="@id/fragmentGameResult"
+            app:popUpTo="@id/fragmentChooseLevel" />
+        <argument
+            android:name="level"
+            app:argType="com.example.composition.domain.entity.Level" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentGameResult"
+        android:name="com.example.composition.presentation.FragmentGameResult"
+        android:label="FragmentGameResult" >
+        <argument
+            android:name="result"
+            app:argType="com.example.composition.domain.entity.GameResult" />
+    </fragment>
+</navigation>

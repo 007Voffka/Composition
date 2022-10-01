@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="gameViewModel"
+            type="com.example.composition.presentation.GameViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textViewTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{gameViewModel.formattedTime}"
+            android:textColor="@color/purple_500"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="00:50" />
+
+        <TextView
+            android:id="@+id/textViewOption0"
+            style="@style/OptionTextStyle"
+            android:background="@android:color/holo_green_dark"
+            android:text="@{gameViewModel.question.options.get(0).toString()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/textViewOption3"
+            app:layout_constraintEnd_toStartOf="@+id/textViewOption4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:onOptionClick="@{(option) -> gameViewModel.chooseAnswer(option)}"
+            tools:text="1" />
+
+        <TextView
+            android:id="@+id/textViewOption2"
+            style="@style/OptionTextStyle"
+            android:background="@android:color/holo_green_light"
+            android:text="@{gameViewModel.question.options.get(2).toString()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/textViewOption3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textViewOption4"
+            app:onOptionClick="@{(option) -> gameViewModel.chooseAnswer(option)}"
+            tools:ignore="TextContrastCheck"
+            tools:text="3" />
+
+
+        <TextView
+            android:id="@+id/textViewOption1"
+            style="@style/OptionTextStyle"
+            android:background="@android:color/holo_purple"
+            android:text="@{gameViewModel.question.options.get(1).toString()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/textViewOption3"
+            app:layout_constraintEnd_toStartOf="@+id/textViewOption5"
+            app:layout_constraintStart_toEndOf="@+id/textViewOption3"
+            app:onOptionClick="@{(option) -> gameViewModel.chooseAnswer(option)}"
+            tools:text="2" />
+
+        <TextView
+            android:id="@+id/textViewOption3"
+            style="@style/OptionTextStyle"
+            android:background="@android:color/holo_blue_dark"
+            android:text="@{gameViewModel.question.options.get(3).toString()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textViewOption4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:onOptionClick="@{(option) -> gameViewModel.chooseAnswer(option)}"
+            tools:text="4" />
+
+        <TextView
+            android:id="@+id/textViewOption5"
+            style="@style/OptionTextStyle"
+            android:background="@android:color/holo_orange_dark"
+            android:text="@{gameViewModel.question.options.get(5).toString()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textViewOption4"
+            app:onOptionClick="@{(option) -> gameViewModel.chooseAnswer(option)}"
+            tools:ignore="TextContrastCheck"
+            tools:text="6" />
+
+
+        <TextView
+            android:id="@+id/textViewOption4"
+            style="@style/OptionTextStyle"
+            android:background="@android:color/holo_red_dark"
+            android:text="@{gameViewModel.question.options.get(4).toString()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textViewOption5"
+            app:layout_constraintStart_toEndOf="@+id/textViewOption3"
+            app:onOptionClick="@{(option) -> gameViewModel.chooseAnswer(option)}"
+            tools:text="5" />
+
+        <ProgressBar
+            android:id="@+id/progressBarRightAnswers"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:progress="@{gameViewModel.percentOfRightAnswers}"
+            android:progressTint="@android:color/holo_red_dark"
+            app:isEnoughPercent="@{gameViewModel.isEnoughPercentOfCorrectAnswers()}"
+            app:layout_constraintBottom_toTopOf="@+id/textViewOption1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewSum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/circle"
+            android:gravity="center"
+            android:minWidth="150dp"
+            android:minHeight="150dp"
+            android:padding="48dp"
+            android:textColor="@color/white"
+            android:textSize="52sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/progressBarRightAnswers"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTimer"
+            app:sum="@{gameViewModel.question.sum}"
+            tools:text="17" />
+
+        <TextView
+            android:id="@+id/textViewVisibleNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/holo_blue_dark"
+            android:gravity="center"
+            android:minWidth="80dp"
+            android:minHeight="80dp"
+            android:padding="16sp"
+            android:textColor="@color/white"
+            android:textSize="44sp"
+            android:textStyle="bold"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/textViewQuestion"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewSum"
+            app:visibleNumber="@{gameViewModel.question.visibleNumber}"
+            tools:text="11" />
+
+        <TextView
+            android:id="@+id/textViewQuestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/holo_blue_dark"
+            android:gravity="center"
+            android:minWidth="80dp"
+            android:minHeight="80dp"
+            android:padding="16sp"
+            android:text="@string/question"
+            android:textColor="@color/white"
+            android:textSize="44sp"
+            android:textStyle="bold"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textViewVisibleNumber"
+            app:layout_constraintTop_toBottomOf="@+id/textViewSum" />
+
+        <TextView
+            android:id="@+id/textViewMinRightAnswers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@{gameViewModel.progressAnswers}"
+            android:textSize="18sp"
+            app:isEnoughCount="@{gameViewModel.isEnoughCorrectAnswers()}"
+            app:layout_constraintBottom_toTopOf="@+id/progressBarRightAnswers"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Правильных ответов, минимум - 3" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
