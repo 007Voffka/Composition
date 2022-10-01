@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="@string/choose_level"
+        android:textSize="26sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonTestMode"
+        style="@style/Level"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="@string/test_mode"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/buttonEasyMode"
+        style="@style/Level"
+        android:layout_height="wrap_content"
+        android:text="@string/easy_mode"
+        android:backgroundTint="@android:color/holo_green_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonTestMode" />
+
+    <Button
+        android:id="@+id/buttonMediumMode"
+        style="@style/Level"
+        android:layout_height="wrap_content"
+        android:text="@string/medium_mode"
+        android:backgroundTint="@android:color/holo_orange_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonEasyMode" />
+
+    <Button
+        android:id="@+id/buttonHardMode"
+        style="@style/Level"
+        android:layout_height="wrap_content"
+        android:text="@string/hard_mode"
+        android:backgroundTint="@android:color/holo_red_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonMediumMode" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
